@@ -38,11 +38,17 @@ public final class Shredder {
 	 * @return The list of shreds in order
 	 * @throws IOException 
 	 */
-	public static void shredFile(File input, boolean compress, int count) throws IOException {
-		byte[] in_data = Files.readAllBytes(input.toPath());
-		byte[] obf_data = in_data;
-		if(compress) obf_data = zip(in_data);
-		mgr = new Manager(count, obf_data);
+	public static void shredFile(File input, boolean compress, int count) {
+		byte[] data = null; 
+		try {
+			data = Files.readAllBytes(input.toPath());
+		} catch(IOException e) {
+			System.err.println("Failed to read the input file. Is it readable?");
+			e.printStackTrace();
+		}
+		
+		if(compress) data = zip(data);
+		mgr = new Manager(count, data);
 		mgr.shred();
 	}
 	

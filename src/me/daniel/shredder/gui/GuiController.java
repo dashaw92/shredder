@@ -1,7 +1,6 @@
 package me.daniel.shredder.gui;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -64,23 +63,21 @@ public class GuiController {
 		
 		File input = new File(label_input.getText());
 		File output = new File(label_output.getText());
+		int count = getShredCount();
 		
-		int count = 3;
-		try {
-			count = Integer.parseInt(shred_count.getText());
-		} catch(NumberFormatException e) {
-			//default to 3 shreds.
-			shred_count.setText("3");
-		}
-		
-		try {
-			Shredder.shredFile(input, compress.isSelected(), count);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Shredder.shredFile(input, compress.isSelected(), count);
 
 		List<String> outputs = Shredder.save(output, input.getName());
 		list.setItems(FXCollections.observableArrayList(outputs));
 	}
 
+	private int getShredCount() {
+		try {
+			return Integer.parseInt(shred_count.getText());
+		} catch(NumberFormatException e) {
+			shred_count.setText("3");
+			return 3;
+		}
+	}
+	
 }
