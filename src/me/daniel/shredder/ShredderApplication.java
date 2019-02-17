@@ -11,6 +11,12 @@ import javafx.stage.Stage;
 public class ShredderApplication extends Application {
 
 	public static void main(String[] args) throws IOException {
+		//Add support for running without a GUI
+		if(args.length > 0) {
+			CommandLine.run(args);
+			return;
+		}
+		
 		launch(args);
 	}
 
