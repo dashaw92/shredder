@@ -67,7 +67,7 @@ public class GuiController {
 		
 		int count = 3;
 		try {
-			count = Integer.valueOf(shred_count.getText());
+			count = Integer.parseInt(shred_count.getText());
 		} catch(NumberFormatException e) {
 			//default to 3 shreds.
 			shred_count.setText("3");
