@@ -22,6 +22,19 @@ public class GuiController {
 	public TextField label_input, label_output, shred_count;
 	@FXML
 	public ListView<String> list;
+	
+	@FXML
+	public void initialize() {
+		//Drag and drop behaviour for files
+		DragHandler input_drag = new DragHandler(label_input, true);
+		DragHandler output_drag = new DragHandler(label_output, false);
+
+		label_input.setOnDragOver(input_drag);
+		label_input.setOnDragDropped(input_drag);
+		
+		label_output.setOnDragDropped(output_drag);
+		label_output.setOnDragOver(output_drag);
+	}
 
 	//Called when the "Open" button is clicked
 	//Selects the file to use as input for shredding
@@ -71,6 +84,7 @@ public class GuiController {
 		list.setItems(FXCollections.observableArrayList(outputs));
 	}
 
+	//Helper method to clean code up
 	private int getShredCount() {
 		try {
 			return Integer.parseInt(shred_count.getText());
