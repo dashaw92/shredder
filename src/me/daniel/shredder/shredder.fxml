@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+
+<VBox maxWidth="549.0" minWidth="549.0" prefHeight="530.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.daniel.shredder.gui.GuiController">
+   <children>
+      <Separator opacity="0.0" prefWidth="200.0" />
+      <HBox prefHeight="23.0" prefWidth="549.0">
+         <children>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label prefHeight="25.0" prefWidth="61.0" text="Input File" />
+            <Separator layoutX="393.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <TextField fx:id="label_input" prefHeight="25.0" prefWidth="316.0" />
+            <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Button fx:id="input_button" mnemonicParsing="false" onAction="#onOpenInputClick" prefHeight="25.0" prefWidth="154.0" text="Open" />
+            <Separator layoutX="399.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+      <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" prefWidth="200.0" />
+      <HBox layoutX="10.0" layoutY="13.0" prefHeight="23.0" prefWidth="549.0">
+         <children>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Label prefHeight="25.0" prefWidth="61.0" text="Output" />
+            <Separator layoutX="393.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <TextField fx:id="label_output" prefHeight="25.0" prefWidth="316.0" />
+            <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Button fx:id="output_button" mnemonicParsing="false" onAction="#onOpenOutputClick" prefHeight="25.0" prefWidth="154.0" text="Select" />
+            <Separator layoutX="399.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+      <Separator layoutX="10.0" layoutY="38.0" opacity="0.0" prefWidth="200.0" />
+      <HBox prefHeight="31.0" prefWidth="549.0">
+         <children>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <CheckBox fx:id="compress" mnemonicParsing="false" prefHeight="17.0" prefWidth="258.0" text="Compress?">
+               <tooltip>
+                  <Tooltip text="Compress the file before shredding" />
+               </tooltip>
+               <padding>
+                  <Insets right="100.0" />
+               </padding>
+            </CheckBox>
+            <BorderPane prefHeight="27.0" prefWidth="458.0">
+               <right>
+                  <Button fx:id="shred_button" mnemonicParsing="false" onAction="#onShredClick" prefHeight="25.0" prefWidth="57.0" text="Shred" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Button>
+               </right>
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="№ Shreds" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+                        <TextField fx:id="shred_count" prefHeight="25.0" prefWidth="98.0" />
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+            <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+      <Separator opacity="0.0" prefWidth="200.0" />
+      <HBox prefHeight="442.0" prefWidth="549.0">
+         <children>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+            <ListView fx:id="list" prefHeight="399.0" prefWidth="537.0" />
+            <Separator layoutX="10.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+      <Separator layoutX="10.0" layoutY="66.0" opacity="0.0" prefWidth="200.0" />
+   </children>
+		
+</VBox>
