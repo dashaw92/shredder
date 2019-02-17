@@ -36,7 +36,6 @@ final class CommandLine {
 					
 					//Get the input and output files
 					File file = getFile(arg);
-					System.out.println(file.getAbsolutePath());
 					if(!file.exists()) {
 						printErrorFile();
 					}
